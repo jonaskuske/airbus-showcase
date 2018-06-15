@@ -14,17 +14,26 @@
       <a href="#" aria-label="Zurück zum Start">
         <img class="logo" src="./src/assets/images/airbus-logo.svg" alt="Airbus Logo">
       </a>
-      <div><a href="#">Datenschutz</a><a href="#">Impressum</a></div>
+      <div>
+        <a href="#" class="header__privacy">Datenschutz</a>
+        <a href="./impressum.html">Impressum</a>
+      </div>
     </header>
-    <!-- <div id="welcome">
-      <h1>Airbus Experience</h1>
-      <p class="teaser-text">The journey starts...</p>
-    </div> -->
     <div class="animation-container">
-
+      <div id="welcome" class="animation-area">
+        <h1>Airbus Experience</h1>
+        <p class="teaser-text">The journey starts...</p>
+        <div class="scroll-downs">
+          <div class="mousey">
+            <div class="scroller"></div>
+          </div>
+        </div>
+      </div>
       <div id="a350" class="animation-area">
       </div>
-      <div id="ariane" class="animation-area">
+      <div class="animation-area ariane-area">
+        <div id="ariane">
+        </div>
       </div>
       <div id="iss" class="animation-area">
       </div>
@@ -33,6 +42,16 @@
 
     </div>
 
+    <div class="animation-trigger-in trigger-welcome"></div>
+    <div class="animation-trigger-in trigger-a350-in"></div>
+    <div class="animation-trigger-out trigger-a350-out"></div>
+    <div class="animation-trigger-in trigger-ariane-in"></div>
+    <div class="animation-trigger-out trigger-ariane-out"></div>
+    <!-- <div class="animation-trigger-in trigger-iss-in"></div>
+    <div class="animation-trigger-out trigger-orion-out"></div> -->
+    <footer>
+      <p>Von Jonas Kuske, Max M. Schneider und Rieke Helmers</p>
+    </footer>
   </body>
 
 </html>

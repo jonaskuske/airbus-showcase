@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "build": "parcel build index.html -p 8080",
+    "build": "parcel build index.html",
     "serve": "parcel index.html -p 8080",
     "dev": "npm run serve",
     "lint": "eslint ./ --fix"
@@ -33,6 +33,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "parcel-bundler": "^1.8.1",
+    "parcel-plugin-clean-dist": "0.0.6",
     "prettier": "^1.13.5"
   }
 }

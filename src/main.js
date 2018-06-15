@@ -1,40 +1,21 @@
 import './assets/styles/style.css'
-import lottie from 'lottie-web'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
-import { TweenMax } from 'gsap'
-import animations from './assets/animationdata'
+import animations from './animations'
 
-const a350ani = lottie.loadAnimation({
-  container: document.querySelector('#a350'),
-  animationData: animations.a350,
-  autoplay: !!0,
+document.querySelector('.header__privacy').addEventListener('click', e => {
+  e.preventDefault()
+  alert(`
+  Falls Sie die im Impressum genannten Kontaktdaten zur Kontaktaufnahme nutzen, verwenden wir Ihre so erhaltenen Daten ausschließlich zur Beantwortung Ihrer Anfrage; auf Wunsch löschen wir die Daten.
+  Ansonsten verwendet und verarbeitet diese Seite keine privaten Daten.
+  `)
 })
 
-lottie.loadAnimation({
-  container: document.querySelector('#ariane'),
-  animationData: animations.ariane,
-  autoplay: !!0,
-})
-
-const show = TweenMax.to('#a350', 2, { x: 0, y: 0 })
-const hide = TweenMax.to('#a350', 2, {
-  x: window.innerWidth,
-  y: window.innerHeight * -0.2,
-})
-const Controller = new ScrollMagic.Controller({
+export default new ScrollMagic.Controller({
   container: document.body,
   globalSceneOptions: {
     duration: '100%',
   },
 })
 
-const test = new ScrollMagic.Scene({})
-  .setTween(show)
-  .on('end', () => a350ani.play())
-  .addTo(Controller)
-new ScrollMagic.Scene({
-  offset: window.innerHeight,
-})
-  .setTween(hide)
-  .addTo(Controller)
+animations.loadAll()
