@@ -1,14 +1,22 @@
 html {
-  background: linear-gradient(to bottom, #2c2cf1, #01015f);
   scroll-behavior: smooth;
 }
 body {
   min-height: 100vh;
-  color: rgba(255,255,255,0.8);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
   padding: 0;
+  /* background: #02497f; */
+  background: #fff;
   scroll-behavior: smooth;
+}
+#welcome, body {
+  color: #00205b;
+
+}
+.animation-container {
+  color: rgba(255,255,255,0.8);
+
 }
 .header {
   position: fixed;
@@ -25,6 +33,7 @@ body {
 .logo {
   width: 100%;
   max-width: 5rem;
+  fill: #00205b;
 }
 a {
   color: currentColor;
@@ -52,6 +61,53 @@ a {
   justify-content: center;
   align-items: center;
 }
+.textblock {
+  position: absolute;
+  transform: translateX(-100%);
+  left: 0;
+  top: 20%;
+  width: auto;
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+
+}
+.tag {
+  position: absolute;
+  transform: translateX(-100%);
+  left: 0;
+  top: 20%;
+  width: auto;
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+}
+@media screen and (max-width: 600px) {
+  .tag {
+    font-size: 1.1rem;
+  }
+}
+.tag::after, .tag::before {
+  content: '';
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  width: 45%;
+  border-bottom: 3px solid rgba(255,255,255,0.8);
+}
+.tag::after {
+  transform: translateY(100%);
+}
+.tag::before {
+width: 100%;
+  border-bottom: 3px solid rgba(255,255,255,0.8);
+
+}
+.text {
+  position: absolute;
+  bottom: 0;
+  width: auto;
+}
 .animation-trigger-in {
   width: 100%;
   height: 200vh;
@@ -70,7 +126,7 @@ a {
   transform: translate(-100vw, 20%);
 }
 .ariane-area {
-  transform: rotate(-15deg) scale(0.75);
+  transform: rotate(-15deg) scale(0.75) translateY(5vh);
 }
 #ariane {
   position: absolute;
@@ -105,10 +161,9 @@ footer > p {
   position: absolute;
   top: 75%;
   right: 0;
-  bottom: 0;
+  bottom: 25%;
   left: 0;
   margin: auto;
-
   width :34px;
   height: 55px;
 }
@@ -116,7 +171,7 @@ footer > p {
   width: 3px;
   padding: 20px 25px;
   height: 45px;
-  border: 2px solid #fff;
+  border: 2px solid #00205b;
   border-radius: 25px;
   opacity: 0.75;
 }
@@ -124,7 +179,7 @@ footer > p {
   width: 3px;
   height: 20px;
   border-radius: 25%;
-  background-color: #fff;
+  background-color: #00205b;
   animation-name: scroll;
   animation-duration: 2.2s;
   animation-timing-function: cubic-bezier(.15,.41,.69,.94);
