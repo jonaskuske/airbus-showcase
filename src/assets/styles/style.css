@@ -1,0 +1,161 @@
+html {
+  font-size: 0.95rem;
+}
+@media screen and (min-width: 350px) {
+  html {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 1.1rem;
+  }
+}
+html, body {
+  scroll-behavior: smooth;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 32, 91);
+}
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+p {
+  margin: 0;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 100;
+}
+.header > div {
+  display: flex;
+  justify-content: flex-end;
+}
+.header a {
+  margin-left: 1rem;
+}
+.logo {
+  width: 100%;
+  max-width: 5rem;
+  fill: #fff;
+}
+
+/* Animation markup */
+.animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.animation-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.animation-trigger {
+  height: 200vh;
+  width: 100%;
+}
+
+/* Animation contents */
+.welcome-area {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-heading {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.welcome-logo {
+  fill: #00205b;
+  width: 85%;
+}
+.ariane-area {
+  width: 100%;
+  height: 100%;
+}
+
+.animation-text {
+  position: absolute;
+  left: 0;
+  top: 20%;
+  width: 90%;
+  max-width: 25rem;
+  transform: translateX(-100%);
+}
+@media screen and (max-width: 600px) {
+  .animation-text {
+    top: 15%;
+  }
+}
+.animation-text > p {
+  padding-left: 2rem;
+  text-align: right;
+}
+.tagline {
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  transform: translate(0);
+}
+.tagline::after, .tagline::before {
+  content: '';
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 3px solid rgba(255,255,255,0.8);
+}
+.tagline::after {
+  width: 45%;
+  transform: translateY(100%);
+}
+.text {
+  font-size: 0.9rem;
+  opacity: 0;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer::before, .footer::after {
+  content: '';
+  flex-grow: 1;
+  border-bottom: 1px solid white;
+}
+.footer > p {
+  text-align: center;
+  margin: 0;
+  padding: 0 1rem;
+}
