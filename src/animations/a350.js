@@ -1,16 +1,17 @@
-import { TweenMax } from 'gsap'
-import lottie from 'lottie-web'
+import { TimelineMax, TweenMax } from 'gsap'
 import ScrollMagic from 'scrollmagic'
-import animations from '../assets/animationdata'
-import controller from '../main'
+import controller, { isMobile } from '../main'
+import getLottie from './a350.lottie'
 
-export default () => {
-  const anim = lottie.loadAnimation({
-    container: document.querySelector('#a350'),
-    animationData: animations.a350,
-    autoplay: false,
-  })
-  anim.setSpeed(3)
+const IN = 0
+const TEXT_IN = 1
+const TEXT_OUT = 2
+const OUT = 3
+
+export default async () => {
+  const anim = await getLottie()
+  const timeline = new TimelineMax()
+
   const animIn = () => {
     anim.setDirection(1)
     anim.play()
@@ -19,46 +20,47 @@ export default () => {
     anim.setDirection(-1)
     anim.play()
   }
-  const darken = TweenMax.to(document.body, 1, { backgroundColor: '#172a67' })
-  const show = TweenMax.to('#a350', 1, { x: 0, y: 0 })
-  const hide = TweenMax.to('#a350', 1, {
-    x: window.innerWidth,
-    y: window.innerHeight * -0.2,
-  })
-  const showText = TweenMax.to('.tag-a350', 1, { x: 0 })
-  const hideText = TweenMax.to('.tag-a350', 1, { x: '-100%' })
+
+  timeline
+    .fromTo(
+      document.body,
+      1,
+      { backgroundColor: '#ffffff' },
+      { backgroundColor: '#172a67' },
+      IN,
+    )
+    .fromTo(
+      '.a350-area',
+      1,
+      { x: '-100%', y: '22%' },
+      { x: '0%', y: '0%', onComplete: animIn, onReverseComplete: animOut },
+      IN,
+    )
+    .fromTo('.text-a350', 1, { x: '-101%' }, { x: '0%' }, IN)
+
+  timeline
+    .to('.text-a350 .text', 1, { opacity: 1 }, TEXT_IN)
+    .to('.a350-area', 1, { y: isMobile && '10%' }, TEXT_IN)
+    .to('.text-a350 .text', 0.5, { opacity: 0, delay: 1 }, TEXT_OUT)
+
+  timeline
+    .to(
+      '.a350-area',
+      1,
+      {
+        x: '100%',
+        y: '-22%',
+        delay: 1,
+        onReverseComplete: animIn,
+      },
+      OUT,
+    )
+    .to('.text-a350', 1, { x: '-101%', delay: 0.5, onStart: animOut }, OUT)
+
   new ScrollMagic.Scene({
-    triggerElement: '.trigger-a350-in',
-    triggerHook: 'onCenter',
-  }).setTween(showText).addTo(controller)
-  new ScrollMagic.Scene({
-    triggerElement: '.trigger-a350-in',
+    triggerElement: '#a350',
     triggerHook: 'onEnter',
   })
-    .setTween(show)
-    .on('end', e => {
-      e.scrollDirection === 'FORWARD' && animIn()
-      e.scrollDirection === 'REVERSE' && animOut()
-    })
+    .setTween(timeline)
     .addTo(controller)
-  new ScrollMagic.Scene({
-    triggerElement: '.trigger-a350-in',
-    triggerHook: 'onEnter',
-  })
-    .setTween(darken)
-    .addTo(controller)
-  new ScrollMagic.Scene({
-    triggerElement: '.trigger-a350-out',
-    triggerHook: 'onEnter',
-  })
-    .setTween(hide)
-    .on('start', e => {
-      e.scrollDirection === 'FORWARD' && animOut()
-      e.scrollDirection === 'REVERSE' && animIn()
-    })
-    .addTo(controller)
-    new ScrollMagic.Scene({
-    triggerElement: '.trigger-a350-out',
-    triggerHook: 'onEnter',
-  }).setTween(hideText).addTo(controller)
 }

@@ -5,7 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "build": "parcel build index.html",
-    "serve": "parcel index.html -p 8080",
+    "serve": "parcel index.html -p 8080 --no-hmr",
     "dev": "npm run serve",
     "lint": "eslint ./ --fix"
   },
@@ -29,11 +29,14 @@
     "scrollmagic": "^2.0.5"
   },
   "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-runtime": "^6.26.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "parcel-bundler": "^1.8.1",
+    "parcel-bundler": "^1.9.1",
     "parcel-plugin-clean-dist": "0.0.6",
+    "parcel-plugin-compress": "^1.0.3",
     "prettier": "^1.13.5"
   }
 }

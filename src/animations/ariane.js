@@ -1,16 +1,17 @@
-import { TweenMax, T } from 'gsap'
-import lottie from 'lottie-web'
+import { TweenMax, TimelineMax } from 'gsap'
 import ScrollMagic from 'scrollmagic'
-import animations from '../assets/animationdata'
-import controller from '../main'
+import controller, { isMobile } from '../main'
+import getLottie from './ariane.lottie'
 
-export default () => {
-  const anim = lottie.loadAnimation({
-    container: document.querySelector('#ariane'),
-    animationData: animations.ariane,
-    autoplay: false,
-  })
-  anim.setSpeed(3)
+const IN = 0
+const TEXT_IN = 1
+const TEXT_OUT = 2
+const OUT = 3
+
+export default async () => {
+  const anim = await getLottie()
+  const timeline = new TimelineMax()
+
   const animIn = () => {
     anim.setDirection(1)
     anim.play()
@@ -19,50 +20,47 @@ export default () => {
     anim.setDirection(-1)
     anim.play()
   }
-  const darken = TweenMax.to(document.body, 1, { backgroundColor: '#0e193d' })
-  const show = TweenMax.to('#ariane', 1, { x: 0, y: 0 })
-  const hide = TweenMax.to('#ariane', 1, {
-    x: window.innerWidth * 0.8,
-    y: window.innerHeight * -1.5,
-  })
-  const showText = TweenMax.to('.tag-ariane', 1, { x: 0 })
-  const hideText = TweenMax.to('.tag-ariane', 1, { x: '-100%' })
+
+  timeline
+    .set('.ariane-area', { scale: 0.9 })
+    .to(document.body, 1, { backgroundColor: '#0e193d' }, IN)
+    .fromTo(
+      '.ariane-area',
+      1,
+      { x: '-100%', y: '100%' },
+      {
+        x: '0%',
+        y: '5%',
+        onComplete: animIn,
+        onReverseComplete: animOut,
+      },
+      IN,
+    )
+    .fromTo('.text-ariane', 1, { x: '-101%' }, { x: '0%' }, IN)
+
+  timeline
+    .to('.text-ariane .text', 1, { opacity: 1 }, TEXT_IN)
+    .to('.ariane-area', 1, { y: isMobile && '14%' }, TEXT_IN)
+    .to('.text-ariane .text', 0.5, { opacity: 0, delay: 1 }, TEXT_OUT)
+
+  timeline
+    .to(
+      '.ariane-area',
+      1,
+      {
+        x: '100%',
+        y: '-100%',
+        delay: 1.5,
+        onReverseComplete: animIn,
+      },
+      OUT,
+    )
+    .to('.text-ariane', 1, { x: '-101%', delay: 1, onStart: animOut }, OUT)
+
   new ScrollMagic.Scene({
-    triggerElement: '.trigger-ariane-in',
-    triggerHook: 'onCenter',
-  })
-    .setTween(showText)
-    .addTo(controller)
-  new ScrollMagic.Scene({
-    triggerElement: '.trigger-ariane-in',
+    triggerElement: '#ariane',
     triggerHook: 'onEnter',
   })
-    .setTween(show)
-    .on('end', e => {
-      e.scrollDirection === 'FORWARD' && animIn()
-      e.scrollDirection === 'REVERSE' && animOut()
-    })
-    .addTo(controller)
-  new ScrollMagic.Scene({
-    triggerElement: '.trigger-ariane-in',
-    triggerHook: 'onEnter',
-  })
-    .setTween(darken)
-    .addTo(controller)
-  new ScrollMagic.Scene({
-    triggerElement: '.trigger-ariane-out',
-    triggerHook: 'onCenter',
-  })
-    .setTween(hide)
-    .on('start', e => {
-      e.scrollDirection === 'FORWARD' && animOut()
-      e.scrollDirection === 'REVERSE' && animIn()
-    })
-    .addTo(controller)
-  new ScrollMagic.Scene({
-    triggerElement: '.trigger-ariane-out',
-    triggerHook: 'onEnter',
-  })
-    .setTween(hideText)
+    .setTween(timeline)
     .addTo(controller)
 }

@@ -1,4 +1,4 @@
-import './assets/styles/style.css'
+import './assets/styles'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 import animations from './animations'
@@ -11,11 +11,29 @@ document.querySelector('.header__privacy').addEventListener('click', e => {
   `)
 })
 
+let cached = 0
+const getDuration = () => cached
+const updateDuration = () => (cached = window.innerHeight * 2)
+window.addEventListener('resize', updateDuration)
+updateDuration()
+
 export default new ScrollMagic.Controller({
   container: document.body,
   globalSceneOptions: {
-    duration: '100%',
+    duration: getDuration,
   },
 })
 
-animations.loadAll()
+let isMobile = false
+const mediaQuery = window.matchMedia('(max-width: 600px)')
+const handleQuery = q => (isMobile = q.matches)
+handleQuery(mediaQuery)
+mediaQuery.addListener(handleQuery)
+export { isMobile }
+
+animations.loadAll().then(() => {
+  const info = document.querySelector('.js-subtitle')
+  info.textContent = info.dataset.done
+  document.querySelector('.scroll-downs').classList.remove('hide')
+  document.body.classList.remove('no-overflow')
+})
