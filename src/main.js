@@ -1,7 +1,17 @@
 import './assets/styles'
+import 'promise-polyfill/src/polyfill'
+import 'whatwg-fetch'
+import smoothscroll from 'smoothscroll-polyfill'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 import animations from './animations'
+
+smoothscroll.polyfill()
+
+document.querySelector('#header-logo').addEventListener('click', e => {
+  e.preventDefault()
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
 
 document.querySelector('.header__privacy').addEventListener('click', e => {
   e.preventDefault()

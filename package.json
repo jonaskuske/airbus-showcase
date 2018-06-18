@@ -26,9 +26,13 @@
   "dependencies": {
     "gsap": "^2.0.1",
     "lottie-web": "^5.1.16",
-    "scrollmagic": "^2.0.5"
+    "promise-polyfill": "^8.0.0",
+    "scrollmagic": "^2.0.5",
+    "smoothscroll-polyfill": "^0.4.3",
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-runtime": "^6.26.0",
     "eslint": "^4.19.1",
