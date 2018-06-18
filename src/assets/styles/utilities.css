@@ -4,3 +4,11 @@
 .no-overflow {
   overflow: hidden;
 }
+@media screen and (orientation: landscape) and (max-height: 650px) and (max-width: 1000px) {
+  .landscape-hide {
+    display: none;
+  }
+  .animation-area {
+    top: 5%;
+  }
+}

@@ -35,7 +35,7 @@ export default new ScrollMagic.Controller({
 })
 
 let isMobile = false
-const mediaQuery = window.matchMedia('(max-width: 600px)')
+const mediaQuery = window.matchMedia('(max-width: 560px)')
 const handleQuery = q => (isMobile = q.matches)
 handleQuery(mediaQuery)
 mediaQuery.addListener(handleQuery)

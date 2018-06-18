@@ -105,13 +105,13 @@ p {
   position: absolute;
   left: 0;
   top: 20%;
-  width: 90%;
+  width: 95%;
   max-width: 25rem;
   transform: translateX(-100%);
 }
 @media screen and (max-width: 600px) {
   .animation-text {
-    top: 15%;
+    top: 17%;
   }
 }
 .animation-text > p {
