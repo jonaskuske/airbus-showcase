@@ -111,7 +111,7 @@ p {
 }
 @media screen and (max-width: 600px) {
   .animation-text {
-    top: 17%;
+    top: 15.5%;
   }
 }
 .animation-text > p {
