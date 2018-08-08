@@ -15,7 +15,7 @@ composition is handled by [GSAP](https://greensock.com/)'s TimelineMax and the c
 
 > run development server:
 (HMR is disabled as the code directly manipulates the DOM)
-`npm run serve`
+`npm start`
 
 > Build for production with minification and compression:
 `npm run build`
