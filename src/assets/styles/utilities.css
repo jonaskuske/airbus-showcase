@@ -4,6 +4,11 @@
 .no-overflow {
   overflow: hidden;
 }
+@media screen and (max-width: 560px) {
+  .mobile-hide {
+    display: none;
+  }
+}
 @media screen and (orientation: landscape) and (max-height: 650px) and (max-width: 1000px) {
   .landscape-hide {
     display: none;
@@ -11,4 +16,8 @@
   .animation-area {
     top: 5%;
   }
+}
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
 }

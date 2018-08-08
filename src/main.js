@@ -13,14 +13,6 @@ document.querySelector('#header-logo').addEventListener('click', e => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 })
 
-document.querySelector('.header__privacy').addEventListener('click', e => {
-  e.preventDefault()
-  alert(`
-  Falls Sie die im Impressum genannten Kontaktdaten zur Kontaktaufnahme nutzen, verwenden wir Ihre so erhaltenen Daten ausschließlich zur Beantwortung Ihrer Anfrage; auf Wunsch löschen wir die Daten.
-  Ansonsten verwendet und verarbeitet diese Seite keine privaten Daten.
-  `)
-})
-
 let cached = 0
 const getDuration = () => cached
 const updateDuration = () => (cached = window.innerHeight * 2)
@@ -43,7 +35,9 @@ export { isMobile }
 
 animations.loadAll().then(() => {
   const info = document.querySelector('.js-subtitle')
-  info.textContent = info.dataset.done
+  info.style.opacity = 0
+  info.setAttribute('aria-hidden', true)
+
   document.querySelector('.scroll-downs').classList.remove('hide')
   document.body.classList.remove('no-overflow')
 })

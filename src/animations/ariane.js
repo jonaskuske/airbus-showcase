@@ -40,7 +40,7 @@ export default async () => {
 
   timeline
     .to('.text-ariane .text', 1, { opacity: 1 }, TEXT_IN)
-    .to('.ariane-area', 1, { y: isMobile && '14%' }, TEXT_IN)
+    .to('.ariane-area', 1, { y: isMobile && '18%' }, TEXT_IN)
     .to('.text-ariane .text', 0.5, { opacity: 0, delay: 1 }, TEXT_OUT)
 
   timeline
