@@ -6,8 +6,9 @@
   bottom: 25%;
   left: 0;
   margin: auto;
-  width :34px;
-  height: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .mousey {
   width: 3px;

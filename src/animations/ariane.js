@@ -22,7 +22,7 @@ export default async () => {
   }
 
   timeline
-    .set('.ariane-area', { scale: 0.9 })
+    .set('.ariane-area', { scale: 0.7 })
     .to(document.body, 1, { backgroundColor: '#005b8b' }, IN)
     .fromTo(
       '.ariane-area',

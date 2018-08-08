@@ -22,7 +22,7 @@ export default async () => {
   }
 
   timeline
-    .set('.iss-area', { scale: 1.2, opacity: 0, y: '50%' })
+    .set('.iss-area', { scale: 1.2, opacity: 0, y: isMobile ? '35%' : '50%' })
     .to(document.body, 1, { backgroundColor: '#003b71' }, IN)
     .fromTo(
       '.iss-area',
@@ -41,7 +41,6 @@ export default async () => {
 
   timeline
     .to('.text-iss .text', 1, { opacity: 1 }, TEXT_IN)
-    .to('.iss-area', 1, { y: isMobile && '14%' }, TEXT_IN)
     .to('.text-iss .text', 0.5, { opacity: 0, delay: 1 }, TEXT_OUT)
 
   timeline
@@ -50,7 +49,7 @@ export default async () => {
       1,
       {
         rotation: 60,
-        scale: 2.5,
+        scale: 2.7,
         opacity: 0,
         delay: 1.5,
         onReverseComplete: animIn,

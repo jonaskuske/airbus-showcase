@@ -22,15 +22,15 @@ export default async () => {
   }
 
   timeline
-    .set('.orion-area', { scale: 0.9 })
+    .set('orion-area', { scale: 0.9 })
     .to(document.body, 1, { backgroundColor: '#1b1e48' }, IN)
     .fromTo(
       '.orion-area',
       1,
       { x: '-100%', y: '100%' },
       {
-        x: '0%',
-        y: '5%',
+        x: isMobile ? '0%' : '20%',
+        y: isMobile ? '25%' : '15%',
         onComplete: animIn,
         onReverseComplete: animOut,
       },
@@ -40,7 +40,6 @@ export default async () => {
 
   timeline
     .to('.text-orion .text', 1, { opacity: 1 }, TEXT_IN)
-    .to('.orion-area', 1, { y: isMobile && '14%' }, TEXT_IN)
     .to('.text-orion .text', 0.5, { opacity: 0, delay: 1 }, TEXT_OUT)
 
   timeline
@@ -49,7 +48,7 @@ export default async () => {
       1,
       {
         x: '100%',
-        y: '-100%',
+        y: isMobile ? '-30%' : '-100%',
         delay: 1.5,
         onReverseComplete: animIn,
       },
