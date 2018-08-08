@@ -113,6 +113,7 @@ p {
 }
 .bremen-area__image {
   position: absolute;
+  opacity: 0;
   right: 50%;
   transform: translateX(50%);
   bottom: 12vh;

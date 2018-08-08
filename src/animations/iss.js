@@ -25,18 +25,18 @@ export default async () => {
     .set('.iss-area', { scale: 1.2, opacity: 0, y: isMobile ? '40%' : '50%' })
     .to(document.body, 1, { backgroundColor: '#003b71' }, IN)
     .fromTo(
-    '.iss-area',
-    1,
-    { rotation: 0 },
-    {
-      rotation: 21.5,
-      scale: 1.8,
-      opacity: 1,
-      onComplete: animIn,
-      onReverseComplete: animOut,
-    },
-    IN,
-  )
+      '.iss-area',
+      1,
+      { rotation: 0 },
+      {
+        rotation: 21.5,
+        scale: 1.8,
+        opacity: 1,
+        onComplete: animIn,
+        onReverseComplete: animOut,
+      },
+      IN,
+    )
     .fromTo('.text-iss', 1, { x: '-101%' }, { x: '0%' }, IN)
 
   timeline
@@ -45,17 +45,17 @@ export default async () => {
 
   timeline
     .to(
-    '.iss-area',
-    1,
-    {
-      rotation: 60,
-      scale: 2.7,
-      opacity: 0,
-      delay: 1.5,
-      onReverseComplete: animIn,
-    },
-    OUT,
-  )
+      '.iss-area',
+      1,
+      {
+        rotation: 60,
+        scale: 2.7,
+        opacity: 0,
+        delay: 1.5,
+        onReverseComplete: animIn,
+      },
+      OUT,
+    )
     .to('.text-iss', 1, { x: '-101%', delay: 1, onStart: animOut }, OUT)
 
   new ScrollMagic.Scene({
