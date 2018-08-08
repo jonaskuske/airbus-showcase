@@ -6,6 +6,7 @@
   "scripts": {
     "build": "parcel build index.html",
     "serve": "parcel index.html -p 8080 --no-hmr",
+    "start": "npm run serve",
     "dev": "npm run serve",
     "lint": "eslint ./ --fix"
   },
