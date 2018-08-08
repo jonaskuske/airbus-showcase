@@ -26,7 +26,7 @@ export default async () => {
       document.body,
       1,
       { backgroundColor: '#ffffff' },
-      { backgroundColor: '#172a67' },
+      { backgroundColor: '#00a5ca' },
       IN,
     )
     .fromTo(

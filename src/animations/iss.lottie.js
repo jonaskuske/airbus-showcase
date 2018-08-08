@@ -1,13 +1,13 @@
 import lottie from 'lottie-web'
 
 export default async () => {
-  const data = await fetch('http://airbus.riekehelmers.com/a350.json')
+  const data = await fetch('http://airbus.riekehelmers.com/iss.json')
     .then(r => r.json())
     .catch(e => console.error(e))
 
   if (data) {
     const anim = lottie.loadAnimation({
-      container: document.querySelector('.a350-area'),
+      container: document.querySelector('.iss-area'),
       animationData: data,
       autoplay: false,
     })

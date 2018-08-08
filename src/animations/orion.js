@@ -1,7 +1,7 @@
 import { TweenMax, TimelineMax } from 'gsap'
 import ScrollMagic from 'scrollmagic'
 import controller, { isMobile } from '../main'
-import getLottie from './ariane.lottie'
+import getLottie from './orion.lottie'
 
 const IN = 0
 const TEXT_IN = 1
@@ -22,10 +22,10 @@ export default async () => {
   }
 
   timeline
-    .set('.ariane-area', { scale: 0.9 })
-    .to(document.body, 1, { backgroundColor: '#005b8b' }, IN)
+    .set('.orion-area', { scale: 0.9 })
+    .to(document.body, 1, { backgroundColor: '#1b1e48' }, IN)
     .fromTo(
-      '.ariane-area',
+      '.orion-area',
       1,
       { x: '-100%', y: '100%' },
       {
@@ -36,16 +36,16 @@ export default async () => {
       },
       IN,
     )
-    .fromTo('.text-ariane', 1, { x: '-101%' }, { x: '0%' }, IN)
+    .fromTo('.text-orion', 1, { x: '-101%' }, { x: '0%' }, IN)
 
   timeline
-    .to('.text-ariane .text', 1, { opacity: 1 }, TEXT_IN)
-    .to('.ariane-area', 1, { y: isMobile && '14%' }, TEXT_IN)
-    .to('.text-ariane .text', 0.5, { opacity: 0, delay: 1 }, TEXT_OUT)
+    .to('.text-orion .text', 1, { opacity: 1 }, TEXT_IN)
+    .to('.orion-area', 1, { y: isMobile && '14%' }, TEXT_IN)
+    .to('.text-orion .text', 0.5, { opacity: 0, delay: 1 }, TEXT_OUT)
 
   timeline
     .to(
-      '.ariane-area',
+      '.orion-area',
       1,
       {
         x: '100%',
@@ -55,10 +55,10 @@ export default async () => {
       },
       OUT,
     )
-    .to('.text-ariane', 1, { x: '-101%', delay: 1, onStart: animOut }, OUT)
+    .to('.text-orion', 1, { x: '-101%', delay: 1, onStart: animOut }, OUT)
 
   new ScrollMagic.Scene({
-    triggerElement: '#ariane',
+    triggerElement: '#orion',
     triggerHook: 'onEnter',
   })
     .setTween(timeline)
