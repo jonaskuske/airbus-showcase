@@ -80,6 +80,7 @@ p {
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  will-change: transform;
 }
 .animation-trigger {
   height: 200vh;

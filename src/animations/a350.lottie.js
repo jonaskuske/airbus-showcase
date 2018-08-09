@@ -1,7 +1,7 @@
 import lottie from 'lottie-web'
 
 export default async () => {
-  const data = await fetch('http://airbus.riekehelmers.com/a350.json')
+  const data = await fetch('http://airbus.riekehelmers.com/a350.json?v=2')
     .then(r => r.json())
     .catch(e => console.error(e))
 
