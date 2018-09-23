@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --no-cache --public-url /airbus/",
     "serve": "parcel index.html -p 8080 --no-hmr",
     "start": "npm run serve",
     "dev": "npm run serve",
@@ -22,7 +22,11 @@
   "homepage": "https://github.com/jonaskuske/airbus-showcase#readme",
   "eslintIgnore": [
     "dist/",
-    ".cache/"
+    ".cache/",
+    "static/animationData/"
+  ],
+  "prettierIgnore": [
+    "static/animationData/"
   ],
   "dependencies": {
     "gsap": "^2.0.2",
@@ -40,8 +44,10 @@
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.6.2",
     "parcel-bundler": "^1.9.7",
+    "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
     "parcel-plugin-compress": "^1.0.6",
+    "parcel-plugin-static": "^1.0.0",
     "prettier": "^1.14.3"
   }
 }
