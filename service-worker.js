@@ -1,6 +1,12 @@
 const CACHE_NAME = 'airbus-showcase-v1'
 
-const staticAssets = ['.']
+const staticAssets = [
+  '.',
+  './static/animationData/a350.json',
+  './static/animationData/ariane.json',
+  './static/animationData/iss.json',
+  './static/animationData/orion.json',
+]
 
 /* get the filenames to cache from the parcel-manifest and add them to cache
 see https://michalzalecki.com/progressive-web-apps-with-webpack/ */

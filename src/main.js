@@ -1,4 +1,3 @@
-import './assets/styles'
 import 'promise-polyfill/src/polyfill'
 import 'whatwg-fetch'
 import smoothscroll from 'smoothscroll-polyfill'
