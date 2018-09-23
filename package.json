@@ -25,9 +25,9 @@
     ".cache/"
   ],
   "dependencies": {
-    "gsap": "^2.0.1",
-    "lottie-web": "^5.1.16",
-    "promise-polyfill": "^8.0.0",
+    "gsap": "^2.0.2",
+    "lottie-web": "^5.3.1",
+    "promise-polyfill": "^8.1.0",
     "scrollmagic": "^2.0.5",
     "smoothscroll-polyfill": "^0.4.3",
     "whatwg-fetch": "^2.0.4"
@@ -37,11 +37,11 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-runtime": "^6.26.0",
     "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.0",
-    "parcel-bundler": "^1.9.1",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "parcel-bundler": "^1.9.7",
     "parcel-plugin-clean-dist": "0.0.6",
-    "parcel-plugin-compress": "^1.0.3",
-    "prettier": "^1.13.5"
+    "parcel-plugin-compress": "^1.0.6",
+    "prettier": "^1.14.3"
   }
 }
