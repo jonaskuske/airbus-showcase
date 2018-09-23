@@ -7,8 +7,7 @@ export default () => {
 
   timeline
     .to('.welcome-area', 0.5, { opacity: 0 }, 0)
-    .to('.logo', 1, { fill: '#ffffff' }, 0)
-    .fromTo(document.body, 1, { color: '#00205b' }, { color: '#ffffff' }, 0)
+    .fromTo('.header__nav', 0.7, { color: '#00205b' }, { color: '#ffffff' }, 0)
 
   let cached = 0
   const getDuration = () => cached

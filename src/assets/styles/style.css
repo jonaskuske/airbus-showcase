@@ -21,7 +21,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  color: rgb(0, 32, 91);
+  color: #ffffff;
 }
 a {
   color: currentColor;
@@ -60,7 +60,9 @@ p {
   max-width: 5rem;
   fill: #fff;
 }
-
+.loading-subtitle {
+  color: rgb(0, 32, 91);
+}
 /* Animation markup */
 .animation-container {
   position: fixed;
