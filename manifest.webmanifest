@@ -7,6 +7,11 @@
       "src": "icon.png",
       "type": "image/png",
       "sizes": "192x192"
+    },
+    {
+      "src": "icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "orientation": "portrait",
