@@ -5,6 +5,7 @@ import smoothscroll from 'smoothscroll-polyfill'
 import ScrollMagic from 'scrollmagic'
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 import animations from './animations'
+import './registerServiceWorker'
 
 smoothscroll.polyfill()
 
