@@ -104,6 +104,7 @@ p {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  color: rgb(0, 32, 91);
 }
 .welcome-logo {
   fill: #00205b;
