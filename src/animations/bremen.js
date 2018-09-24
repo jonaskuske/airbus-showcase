@@ -4,6 +4,7 @@ import controller from '../main'
 
 const IN = 0
 const TEXT_IN = 1
+const TEXT_OUT = 2
 
 export default () => {
   const timeline = new TimelineMax()
@@ -15,6 +16,8 @@ export default () => {
     .to('.bremen-area__image', 1, { opacity: 1 }, IN)
     .fromTo('.text-bremen', 1, { x: '-101%' }, { x: '0%' }, IN)
     .to('.text-bremen .text', 1, { opacity: 1 }, TEXT_IN)
+    // ! Neccessary so text is already visible when opening airbus.com/#bremen
+    .to('.text-bremen .text', 0.5, { opacity: 1, delay: 1 }, TEXT_OUT)
 
   let cached = 0
   const getDuration = () => cached
