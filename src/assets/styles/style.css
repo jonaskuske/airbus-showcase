@@ -23,12 +23,31 @@ body {
   flex-direction: column;
   color: #ffffff;
 }
+main {
+  display: block;
+}
 a {
   color: currentColor;
   text-decoration: none;
 }
 p {
   margin: 0;
+}
+
+/* Custom Scrollbar Styling for Chrome (only if it has visible scrollbars, */
+/* so not Chrome for Android & Safari) */
+.scrollbar::-webkit-scrollbar {
+  width: 0.5rem;
+  background: transparent;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.7);
+  background: var(--scrollbar);
+  border-radius: 50px;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.9);
+  background: var(--scrollbar-hover);
 }
 
 /* Header */

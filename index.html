@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#00205b">
     <meta name="description" content="Erlebe die Produkte und Leistungen von Airbus Bremen bei einer virtuellen Reise von Bremen bis ins All.">
     <title>Showcase | Airbus Bremen</title>
-    <script src="./src/main.js" async defer></script>
+    <script src="./src/main.js" defer></script>
     <link rel="stylesheet" href="./src/assets/styles/style.css">
     <link rel="stylesheet" href="./src/assets/styles/scroller.css">
     <link rel="stylesheet" href="./src/assets/styles/utilities.css">
@@ -18,6 +18,18 @@
   </head>
 
   <body class="no-overflow">
+
+    <!-- Start scrollbar width detection -->
+    <div id="scroll-measure" style="width:100px;height:100px;overflow:scroll !important;position:absolute;top:-100vh"></div>
+    <script>
+      const el = document.getElementById('scroll-measure'), bd = document.body
+      const scrollbarWidth = el.offsetWidth - el.clientWidth
+      scrollbarWidth > 0 && bd.classList.add('scrollbar')
+      bd.removeChild(el)
+      console.log(this)
+    </script>
+    <!-- End scrollbar width detection -->
+
     <header class="header">
       <a href="#" aria-label="Zurück zum Start" id="header-logo">
         <svg class="logo" version="1.1" xmlns:svg="http://www.w3.org/2000/svg"
@@ -45,7 +57,7 @@
         <a href="./impressum.html">Impressum</a>
       </div>
     </header>
-    <div class="animation-container">
+    <main class="animation-container">
 
       <div class="animation-area welcome-area">
         <h1 class="welcome-heading">
@@ -142,14 +154,14 @@
           class="bremen-area__image">
       </div>
 
-    </div>
+    </main>
 
-    <div id="welcome" class="animation-trigger trigger-welcome"></div>
-    <div id="a350" class="animation-trigger trigger-a350"></div>
-    <div id="ariane" class="animation-trigger trigger-ariane"></div>
-    <div id="iss" class="animation-trigger trigger-iss"></div>
-    <div id="orion" class="animation-trigger trigger-orion"></div>
-    <div id="bremen" class="animation-trigger trigger-bremen"></div>
+    <div id="welcome" class="animation-trigger trigger-welcome" aria-hidden="true"></div>
+    <div id="a350" class="animation-trigger trigger-a350" aria-hidden="true"></div>
+    <div id="ariane" class="animation-trigger trigger-ariane" aria-hidden="true"></div>
+    <div id="iss" class="animation-trigger trigger-iss" aria-hidden="true"></div>
+    <div id="orion" class="animation-trigger trigger-orion" aria-hidden="true"></div>
+    <div id="bremen" class="animation-trigger trigger-bremen" aria-hidden="true"></div>
 
     <footer class="footer">
       <p>Von Jonas Kuske, Max M. Schneider und Rieke Helmers</p>
