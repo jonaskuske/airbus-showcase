@@ -13,5 +13,7 @@ export default async () => {
 
     anim.setSpeed(3)
     return anim
+  } else {
+    throw new Error('Failed to load animation for Orion: fetching data failed.')
   }
 }
