@@ -8,8 +8,7 @@ const staticAssets = [
   './static/animationData/orion.json',
 ]
 
-/* get the filenames to cache from the parcel-manifest and add them to cache
-see https://michalzalecki.com/progressive-web-apps-with-webpack/ */
+// get the filenames to cache from the parcel-manifest and add them to cache
 self.addEventListener('install', event => {
   event.waitUntil(
     caches
@@ -53,7 +52,6 @@ const checkResponseStatus = r =>
 /* Helper functions to determine whether requests/responses should be cached */
 const isRequestCacheable = request => {
   const url = new URL(request.url)
-  // don't cache responses from backend as it has its own caching using idb
   if (url.protocol === 'chrome-extension:') return false
 
   return true
@@ -89,13 +87,13 @@ const requestThenCache = (event, cache) => {
 }
 
 self.addEventListener('fetch', event => {
-  // if request should not be cached: respond with fetch and return
+  // if request should not be cached: respond with normal 404 fetch and return
   if (!isRequestCacheable(event.request)) {
     event.respondWith(requestFailingWith404(event))
     return
   }
 
-  // neccessary for sw to handle requests with query strings
+  // ! ignore query strings
   const requestURL = event.request.url
   const request = requestURL.includes('?')
     ? new Request(requestURL.substring(requestURL.indexOf('?') + 1))

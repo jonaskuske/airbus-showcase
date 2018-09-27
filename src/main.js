@@ -8,6 +8,7 @@ import './registerServiceWorker'
 
 smoothscroll.polyfill()
 
+// Handler so a click on the logo smoothscrolls to the top
 document.querySelector('#header-logo').addEventListener('click', e => {
   e.preventDefault()
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -33,6 +34,8 @@ handleQuery(mediaQuery)
 mediaQuery.addListener(handleQuery)
 export { isMobile }
 
+// Wait until all animations are loaded, then remove the "loading" notice,
+// show the animated scroll hint and allow scrolling by allowing overflow
 animations.loadAll().then(() => {
   const info = document.querySelector('.js-subtitle')
   info.style.opacity = 0
