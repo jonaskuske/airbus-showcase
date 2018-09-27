@@ -9,8 +9,11 @@ export default () => {
   timeline
     .to('.welcome-area', 0.5, { opacity: 0 }, 0)
     .fromTo('.header__nav', 0.7, { color: '#00205b' }, { color: '#ffffff' }, 0)
-    // Update CSS vars so scrollbar color changes from blue to white
-    .fromTo(
+
+  // If browser has visible scrollbars and scrollbars are stylable (WebKit):
+  // Update CSS vars so scrollbar color changes from blue to white
+  if (window.__hasScrollbar__ && /AppleWebKit\//.test(navigator.userAgent)) {
+    timeline.fromTo(
       'html',
       0.7,
       {
@@ -33,6 +36,7 @@ export default () => {
       },
       0,
     )
+  }
 
   let cached = 0
   const getDuration = () => cached

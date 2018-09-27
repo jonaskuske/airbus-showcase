@@ -1,4 +1,4 @@
-const CACHE_NAME = 'airbus-showcase-v2'
+const CACHE_NAME = 'airbus-showcase-v3'
 
 const staticAssets = [
   '.',

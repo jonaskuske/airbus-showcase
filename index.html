@@ -25,6 +25,7 @@
       const el = document.getElementById('scroll-measure'), bd = document.body
       const scrollbarWidth = el.offsetWidth - el.clientWidth
       scrollbarWidth > 0 && bd.classList.add('scrollbar')
+      window.__hasScrollbar__ = scrollbarWidth > 0
       bd.removeChild(el)
     </script>
     <!-- End scrollbar width detection -->
