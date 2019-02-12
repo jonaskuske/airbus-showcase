@@ -1,7 +1,7 @@
 import lottie from 'lottie-web'
 
 export default async () => {
-  const data = await fetch('./static/animationData/orion.json')
+  const data = await fetch('./animationData/orion.json')
     .then(r => r.json())
     .catch(e => console.error(e))
   if (data) {

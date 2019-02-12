@@ -1,11 +1,11 @@
-const CACHE_NAME = 'airbus-showcase-v3'
+const CACHE_NAME = 'airbus-showcase-v4'
 
 const staticAssets = [
   '.',
-  './static/animationData/a350.json',
-  './static/animationData/ariane.json',
-  './static/animationData/iss.json',
-  './static/animationData/orion.json',
+  './animationData/a350.json',
+  './animationData/ariane.json',
+  './animationData/iss.json',
+  './animationData/orion.json',
 ]
 
 // get the filenames to cache from the parcel-manifest and add them to cache
