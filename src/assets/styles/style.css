@@ -11,7 +11,8 @@ html {
     font-size: 1.1rem;
   }
 }
-html, body {
+html,
+body {
   scroll-behavior: smooth;
   font-family: 'Helvetica Neue', 'Arial', sans-serif;
 }
@@ -175,13 +176,14 @@ p {
   margin-bottom: 1rem;
   transform: translate(0);
 }
-.tagline::after, .tagline::before {
+.tagline::after,
+.tagline::before {
   content: '';
   right: 0;
   position: absolute;
   bottom: 0;
   width: 100%;
-  border-bottom: 3px solid rgba(255,255,255,0.8);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.8);
 }
 .tagline::after {
   width: 45%;
@@ -201,7 +203,8 @@ p {
   justify-content: center;
   align-items: center;
 }
-.footer::before, .footer::after {
+.footer::before,
+.footer::after {
   content: '';
   flex-grow: 1;
   border-bottom: 1px solid white;
