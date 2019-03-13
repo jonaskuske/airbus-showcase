@@ -4,7 +4,7 @@
   "description": "Erlebe die Produkte und Leistungen von Airbus Bremen bei einer virtuellen Reise von Bremen bis ins All.",
   "main": "src/main.js",
   "scripts": {
-    "build": "parcel build index.html --no-cache --public-url /airbus/",
+    "build": "parcel build index.html --no-cache --public-url ./",
     "serve": "parcel index.html -p 8080 --no-hmr",
     "start": "npm run serve",
     "dev": "npm run serve",
@@ -48,7 +48,6 @@
     "parcel-plugin-asset-copier": "^1.0.0",
     "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
-    "parcel-plugin-compress": "^1.0.7",
     "prettier": "^1.16.4"
   }
 }
