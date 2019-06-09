@@ -22,7 +22,12 @@ export default async () => {
   }
 
   timeline
-    .set('.iss-area', { scale: 1.2, opacity: 0, y: isMobile ? '40%' : '50%' })
+    .set('.iss-area', {
+      scale: 1.2,
+      opacity: 0,
+      immediateRender: true,
+      y: isMobile ? '40%' : '50%',
+    })
     .to(document.body, 1, { backgroundColor: '#003b71' }, IN)
     .fromTo(
       '.iss-area',
