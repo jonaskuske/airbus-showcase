@@ -1,5 +1,4 @@
 import { TimelineMax, TweenMax } from 'gsap'
-import 'gsap/ModifiersPlugin'
 import ScrollMagic from 'scrollmagic'
 import controller from '../main'
 
